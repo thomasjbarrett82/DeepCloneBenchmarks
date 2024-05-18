@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Running;
-using DotNet;
+using DotNet.Benchmarks;
 
 var serializeSummary = BenchmarkRunner.Run<SerializeTest>();
 

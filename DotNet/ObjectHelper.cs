@@ -1,3 +1,5 @@
+using DotNet.Models;
+
 namespace DotNet;
 
 public static class ObjectHelper {

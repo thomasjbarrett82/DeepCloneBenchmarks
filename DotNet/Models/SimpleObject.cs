@@ -1,6 +1,7 @@
-namespace DotNet;
+namespace DotNet.Models;
 
-public class SimpleObject {
+public class SimpleObject
+{
     public long Id { get; set; }
     public Guid UniqueId { get; set; }
     public string Name { get; set; }
