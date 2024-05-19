@@ -1,9 +1,18 @@
-﻿using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Toolchains.InProcess.Emit;
 
 namespace DotNet;
 
 public class Program {
     public static void Main(string[] args) {
-        var summary = BenchmarkRunner.Run<DeepCopyBenchmarks>();
+        ManualConfig config = ManualConfig
+            .Create(DefaultConfig.Instance)
+            .AddJob(Job.Dry
+                .WithToolchain(InProcessEmitToolchain.DontLogOutput)
+                .WithIterationCount(50)
+            );
+        _ = BenchmarkRunner.Run(typeof(DeepCopyBenchmarks), config, args);
     }
 }

@@ -1,7 +1,7 @@
 namespace DotNet.Models;
 
 public class VeryComplexObject : BaseObject {
-    public VeryComplexObject(string benchmarkName) : base(benchmarkName) {
+    public VeryComplexObject() : base() {
         var _random = new Random();
         ComplexObjects = [];
         Guids = [];
@@ -9,7 +9,7 @@ public class VeryComplexObject : BaseObject {
         
         var num = _random.Next(1,10);
         for (int i=0; i <= num; i++) {
-            ComplexObjects.Add(new ComplexObject(benchmarkName));
+            ComplexObjects.Add(new ComplexObject());
             Guids.Add(Guid.NewGuid());
             OtherNames.Add(ObjectHelper.RandomString());
         }
@@ -20,6 +20,6 @@ public class VeryComplexObject : BaseObject {
     public List<string> OtherNames { get; set; }
 
     public override string ToString() {
-        return $"{nameof(VeryComplexObject)} - {BenchmarkName}";
+        return $"{nameof(VeryComplexObject)}";
     }
 }

@@ -50,7 +50,7 @@ public class DeepCloneTests {
 
     [TestMethod]
     public void SerializeTest_SimpleObject() {
-        var input = new SimpleObject("System.Text.Json");
+        var input = new SimpleObject();
         _benchmarks.SystemTextJsonSimpleObject(input);
     }
 

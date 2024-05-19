@@ -1,7 +1,7 @@
 namespace DotNet.Models;
 
 public class SimpleObject : BaseObject {
-    public SimpleObject(string benchmarkName) : base(benchmarkName) {
+    public SimpleObject() : base() {
         var _random = new Random();
         StartDate = ObjectHelper.RandomDay();
         EndDate = ObjectHelper.RandomDay();
@@ -17,6 +17,6 @@ public class SimpleObject : BaseObject {
     public float FloatValue { get; set; }
 
     public override string ToString() {
-        return $"{nameof(SimpleObject)} - {BenchmarkName}";
+        return $"{nameof(SimpleObject)}";
     }
 }

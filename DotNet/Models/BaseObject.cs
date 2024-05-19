@@ -1,7 +1,7 @@
 namespace DotNet.Models;
 
 public class BaseObject {
-    public BaseObject(string benchmarkName) {
+    public BaseObject() {
         var _random = new Random();
 
         Id = _random.NextInt64();
@@ -9,7 +9,6 @@ public class BaseObject {
         Name = ObjectHelper.RandomString();
         Description = ObjectHelper.RandomString();
         Comment = ObjectHelper.RandomString();
-        BenchmarkName = benchmarkName;
     }
 
     public long Id { get; set; }
@@ -17,5 +16,4 @@ public class BaseObject {
     public string Name { get; set; }
     public string Description { get; set; }
     public string Comment { get; set; }
-    public string BenchmarkName { get; set; }
 }

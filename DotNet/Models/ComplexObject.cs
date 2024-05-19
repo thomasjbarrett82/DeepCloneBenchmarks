@@ -1,9 +1,9 @@
 namespace DotNet.Models;
 
 public class ComplexObject : BaseObject {
-    public ComplexObject(string benchmarkName) : base(benchmarkName) {
+    public ComplexObject() : base() {
         var _random = new Random();
-        Object = new SimpleObject(benchmarkName);
+        Object = new SimpleObject();
         DateTimes = [];
 
         var num = _random.Next(1,10);
@@ -16,6 +16,6 @@ public class ComplexObject : BaseObject {
     public List<DateTime> DateTimes { get; set; }
 
     public override string ToString() {
-        return $"{nameof(ComplexObject)} - {BenchmarkName}";
+        return $"{nameof(ComplexObject)}";
     }
 }
