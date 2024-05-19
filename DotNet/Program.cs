@@ -1,6 +1,9 @@
 ﻿using BenchmarkDotNet.Running;
-using DotNet.Benchmarks;
 
-var serializeSummary = BenchmarkRunner.Run<SerializeTest>();
+namespace DotNet;
 
-var cloneInjectionSummary = BenchmarkRunner.Run<CloneInjectionTest>();
+public class Program {
+    public static void Main(string[] args) {
+        var summary = BenchmarkRunner.Run<DeepCopyBenchmarks>();
+    }
+}
