@@ -11,7 +11,7 @@ public class Program {
             .Create(DefaultConfig.Instance)
             .AddJob(Job.Dry
                 .WithToolchain(InProcessEmitToolchain.DontLogOutput)
-                .WithIterationCount(50)
+                .WithIterationCount(100)
             );
         _ = BenchmarkRunner.Run(typeof(DeepCopyBenchmarks), config, args);
     }
