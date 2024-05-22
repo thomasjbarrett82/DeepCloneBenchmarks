@@ -42,9 +42,10 @@ WarmupCount=1
 | ExpressionVeryComplexObject     | VeryComplexObject |    89.58 us |  35.70 us |  21.700 us |   5,575.0 us |
 
 #### Legends
-  input  : Value of the 'input' parameter
-  Mean   : Arithmetic mean of all measurements
-  Median : Value separating the higher half of all measurements (50th percentile)
-  Min    : Minimum
-  Max    : Maximum
-  1 us   : 1 Microsecond (0.000001 sec)
+  
+- input  : Value of the 'input' parameter
+- Mean   : Arithmetic mean of all measurements
+- Median : Value separating the higher half of all measurements (50th percentile)
+- Min    : Minimum
+- Max    : Maximum
+- 1 us   : 1 Microsecond (0.000001 sec)
