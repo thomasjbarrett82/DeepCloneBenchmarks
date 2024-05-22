@@ -1,17 +1,12 @@
 using BenchmarkDotNet.Attributes;
-using DotNet;
 using DotNet.Models;
+
+namespace DotNet;
 
 [MinColumn, MaxColumn, MeanColumn, MedianColumn]
 public class DeepCopyBenchmarks {
-    private readonly SimpleObject _simple;
-
-    public DeepCopyBenchmarks() {
-        _simple = new SimpleObject();
-    }
-
     public IEnumerable<object[]> SimpleObjects() {
-        yield return new object[] { _simple };
+        yield return new object[] { new SimpleObject() };
     }
 
     public IEnumerable<object[]> ComplexObjects() {
@@ -20,6 +15,25 @@ public class DeepCopyBenchmarks {
 
     public IEnumerable<object[]> VeryComplexObjects() {
         yield return new object[] { new VeryComplexObject() };
+    }
+
+    /* Benchmarks for manual clone */ // TODO ICloneable instead of extension methods?
+    [Benchmark]
+    [ArgumentsSource(nameof(SimpleObjects))]
+    public void ManualSimpleObject(SimpleObject input) {
+        input.ManualClone();
+    }
+
+    [Benchmark]
+    [ArgumentsSource(nameof(ComplexObjects))]
+    public void ManualComplexObject(ComplexObject input) {
+        input.ManualClone();
+    }
+
+    [Benchmark]
+    [ArgumentsSource(nameof(VeryComplexObjects))]
+    public void ManualVeryComplexObject(VeryComplexObject input) {
+        input.ManualClone();
     }
 
     /* Benchmarks for System.Text.Json */
@@ -77,25 +91,6 @@ public class DeepCopyBenchmarks {
     [ArgumentsSource(nameof(VeryComplexObjects))]
     public void ValueInjecterVeryComplexObject(VeryComplexObject input) {
         input.InjectionClone();
-    }
-
-    /* Benchmarks for IntermediateLanguage */
-    [Benchmark]
-    [ArgumentsSource(nameof(SimpleObjects))]
-    public void IntermediateLanguageSimpleObject(SimpleObject input) {
-        input.IntermediateLanguageClone();
-    }
-
-    [Benchmark]
-    [ArgumentsSource(nameof(ComplexObjects))]
-    public void IntermediateLanguageComplexObject(ComplexObject input) {
-        input.IntermediateLanguageClone();
-    }
-
-    [Benchmark]
-    [ArgumentsSource(nameof(VeryComplexObjects))]
-    public void IntermediateLanguageVeryComplexObject(VeryComplexObject input) {
-        input.IntermediateLanguageClone();
     }
 
     /* Benchmarks for Expression */
