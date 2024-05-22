@@ -22,14 +22,17 @@ Benchmarking done with [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotN
 
 ### Results
 
-BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.4412/22H2/2022Update)
-Intel Core i3-7100U CPU 2.40GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cores
-.NET Core SDK DotNet 1.0.0+c79b82b954b8eaddc955861090c4c6b259c27d89
-Host : .NET 8.0.5 (8.0.524.21615), X64 RyuJIT AVX2
-
-Job=Dry  Toolchain=InProcessEmitToolchain  IterationCount=100  
-LaunchCount=1  RunStrategy=ColdStart  UnrollFactor=1  
-WarmupCount=1  
+- BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.4412/22H2/2022Update)
+- Intel Core i3-7100U CPU 2.40GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cores
+- .NET Core SDK DotNet 1.0.0+c79b82b954b8eaddc955861090c4c6b259c27d89
+- Host : .NET 8.0.5 (8.0.524.21615), X64 RyuJIT AVX2
+- Job=Dry  
+- Toolchain=InProcessEmitToolchain 
+- IterationCount=100  
+- LaunchCount=1  
+- RunStrategy=ColdStart  
+- UnrollFactor=1  
+- WarmupCount=1  
 
 | Method                          | input             | Mean        | Median    | Min        | Max          |
 |-------------------------------- |------------------ |------------:|----------:|-----------:|-------------:|
