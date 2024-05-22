@@ -9,8 +9,16 @@ Benchmarking done with [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotN
 - Manual cloning the object.
 - Serialize and deserialize the object using System.Text.Json.
 - Serialize and deserialize the object using Newtonsoft.Json.
-- CloneInjection using [Omu/ValueInjecter](https://github.com/omuleanu/ValueInjecter).
+- Reflection using CloneInjection in [Omu/ValueInjecter](https://github.com/omuleanu/ValueInjecter).
 - Expression Trees using [DeepCloner](https://www.nuget.org/packages/DeepCloner).
+
+### Analysis
+
+- Expression Trees have an initial setup cost, but for repeated cloning it is definitely fastest.
+- Manual cloning is generally the fastest clone method for most use cases.
+- Reflection is the next fastest clone method.
+- Serialization using System.Text.Json is the second slowest clone method.
+- Serialization using Newtonsoft.Json is the slowest clone method.
 
 ### Results
 
