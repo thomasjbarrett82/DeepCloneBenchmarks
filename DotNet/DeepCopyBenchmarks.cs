@@ -4,6 +4,7 @@ using DotNet.Models;
 namespace DotNet;
 
 [MinColumn, MaxColumn, MeanColumn, MedianColumn]
+[MemoryDiagnoser]
 public class DeepCopyBenchmarks {
     public IEnumerable<object[]> SimpleObjects() {
         yield return new object[] { new SimpleObject() };
